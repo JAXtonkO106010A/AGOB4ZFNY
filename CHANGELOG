@@ -1,0 +1,37 @@
+THIS CHANGELOG IS AN ATTEMPT TO DOCUMENT CHANGES TO THIS PROJECT.
+SUPER MINOR REVISION NUMBERS WON'T SHOW UP IN GITHUB BUT IT'LL HELP
+ME ORGANIZE WHEN I MADE A SET OF FIXES
+
+MOBI-v2.0.2 (August 22, 2010)
+ - FIX: the google analytics tracking graphic on the basic templates has been fixed. also addresses an issue where
+        this caused a double-hit to be recorded in the Pageviews table
+ - FIX: default theme homescreen icons have been updated
+ - ADD: default news icon
+ - THX: thanks to kto for the heads up on the icons in the default theme
+
+MOBI-v2.0.1 (August 13, 2010)
+ - ADD: proper detection for opera mobile
+ - FIX: device detection upgraded to support PHP 5.3. removed references to eregi()
+ - FIX: input color in the default theme is now black
+ - FIX: $theme var in web/templates/touch/form.html now properly populates
+ - FIX: category dropdown in maps now properly refreshes results by selected category
+ - THX: thanks to robin8 for all the great feedback & diffs for the fixes
+
+MOBI-v2.0.0 (May 14, 2010)
+ - ADD: theme support
+ - ADD: jQuery & jQTouch support for interactive effects in webkit templates
+ - ADD: basic templates now support mobile-optimized Google Analytics
+ - ADD: "favorites" feature in calendar, people, and map
+ - ADD: using 'min' library to compress JS & CSS on the fly
+ - ADD: support for JSON export of data to help support the iWVU iPhone app codebase
+ - FIX: now supports basic, touch, and webkit templates
+ - FIX: cleaned up base code and reorganized files
+ - FIX: updated the example virtual host config to support compression of files
+
+MOBI-v1.0.1 (November 28 2009)
+ - FIX: added global contact add to send_email() of web/people/vcard.php
+ - FIX: removed a superfluous variable from line #111 of web/people/vcard.php
+ - FIX: added the ability to set var to allow mobile-friendly map tiles for static maps
+ - FIX: fixed a syntax error in web/people/detail.php on line #20
+ - FIX: added isset($query) to web/map/sp/index.html to fix unset variable error
+ - FIX: added $city_state to config.gen.copy.inc.php so that the map results show the proper city/state
