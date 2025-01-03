@@ -1,0 +1,40 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile("org.springframework.boot:spring-boot-devtools")
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+	compile('org.springframework.boot:spring-boot-starter-security')
+	compileOnly 'org.projectlombok:lombok:1.16.18'
+	testCompile('org.springframework.security:spring-security-test')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	runtime('mysql:mysql-connector-java')
+}
+
+bootRun {
+	systemProperty 'spring.profiles.active', System.properties['spring.profiles.active']
+}
