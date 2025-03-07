@@ -1,0 +1,9 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^\.DS_Store$
+^LICENSE\.md$
+^README\.Rmd$
+^logo\.R$
+^make\.R$
+^R/utils-tidyverse\.R$
+^notes\.R$
