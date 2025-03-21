@@ -1,0 +1,136 @@
+* Algebraic Structures Tutorials
+
+A catalog of tutorials written on algebraic structures. Feel free to do a PR/raise an issue if you know of any stellar tutorials on it.
+
+** Monoids
+
+*** [[http://www.tomharding.me/2016/11/03/monoid-est-tonoid/][Monoid Est Ton Oid (2016)]]
+A neat tutorial that introduces how monoids can be used to make code with reduce/fold operation cleaner.
+
+*** [[https://joneshf.github.io/programming/2015/12/31/Comonads-Monoids-and-Trees.html][Comonads, Monoids, and Trees (2015)]]
+
+*** [[http://ozark.hendrix.edu/~yorgey/pub/monoid-pearl.pdf][Monoid: Themes and Variations (Functional Pearl) (2012)]]
+Brent Yorgey
+
+*** [[https://blog.sigfpe.com/2009/01/haskell-monoids-and-their-uses.html][Haskell Monoids and Their Uses (2009)]]
+Dan Piponi
+
+*** [[https://fsharpforfunandprofit.com/posts/monoids-without-tears/][Monoids without Tears (2013)]]
+Scott Wlaschin
+A series on monoids
+
+*** [[https://free.cofree.io/2017/12/27/free/][Free Monoids and Free Monads, Free of Category Theory (2017)]]
+Ziyang Liu
+
+*** [[https://oleksandrmanzyuk.wordpress.com/2014/08/09/transducers-are-monoid-homomorphisms/][Monoidal transducers are monoidal homomorphisms (2014)]]
+Oleksandr Manzyuk
+
+** Monads
+
+*** [[https://garlandus.co/OfGroupsAndMonads.html][Of Groups and Monads (2018)]]
+Garlandus
+
+A good tutorial that first introduces group theory and algebraic structures before delving into the details on monads.
+This way, a somewhat natural progression can be seen on how the ideas got motivated and emerged into Category Theory.
+The part about duals and natural transformations are well written.
+
+*** [[http://blog.sigfpe.com/2006/08/you-could-have-invented-monads-and.html][You Could Have Invented Monads! (And Maybe You Already Have.) (2006)]]
+Dan Piponi
+
+*** [[http://madjestic.github.io/posts/2019-01-19-a-monad-tutorial.html][What is Monad? (2019)]]
+Turtles Turtles Turtles
+
+*** [[http://blog.sigfpe.com/2008/11/from-monoids-to-monads.html][From monoids to monads (2008)]]
+Dan Piponi
+
+*** [[https://blog.jcoglan.com/2011/03/05/translation-from-haskell-to-javascript-of-selected-portions-of-the-best-introduction-to-monads-ive-ever-read/][Translation from Haskell to JavaScript of selected portions of the best introduction to monads I’ve ever read (2011)]]
+James Coglan
+
+*** [[https://bypaulshen.com/posts/monads-for-javascript-developers/][Monads for Javascript Developers (2020)]]
+Paul Shen
+
+*** [[https://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html][Functors, Applicatives, and Monads in Pictures (2013)]]
+Aditya Bargava’s visual introduction to functional programming concepts
+
+*** [[https://blog.reverberate.org/2015/08/monads-demystified.html][Monads Demystified (2015)]]
+Josh Haberman
+
+*** [[https://neilmitchell.blogspot.com/2019/10/monads-as-graphs.html][Monads as Graphs (2019)]]
+Neil Mitchell
+
+*** [[https://danghica.blogspot.com/2018/07/haskell-if-monads-are-solution-what-is.html][If monads are the solution, what is the problem? (2018)]]
+Dan Ghica
+
+A nice article that outlines how monads can be used both at the meta-language level and object-language level. Also, addresses how Moggi’s framework was adapted to Haskell and the nuances of evaluation strategies Haskell has when adopting monads along with lazy evaluation.
+
+*** [[https://www.diva-portal.org/smash/get/diva2:1369286/FULLTEXT01.pdf][Monads in Haskell and Category Theory (2019)]]
+Samuel Grahn
+
+*** [[https://www.stephendiehl.com/posts/monads.html][Monads made hard (2017)]]
+Stephen Diehl
+
+*** [[https://web.archive.org/web/20120114225257/http://ertes.de/articles/monads.html][Understanding Haskell Monads (2008)]]
+Ertugrul Söylemez
+
+** Comonads
+
+*** [[https://blog.functorial.com/posts/2016-08-07-Comonads-As-Spaces.html][Comonads as Spaces (2016)]]
+Phil Freeman
+
+*** [[https://speakerdeck.com/wuct/from-declarative-uis-to-comonadic-uis][From Declarative UIs to Comonadic UIs (2018)]]
+C.T. Wu
+
+*** [[https://arthurxavierx.github.io/ComonadsForUIs.pdf][Comonads for UIs]]
+Arthur Xavier
+
+** Semirings
+
+*** [[http://web.archive.org/web/20200624153748if_/http://stedolan.net/research/semirings.pdf][Fun With Semirings (2013)]]
+Stephen Dolan
+
+[[http://web.archive.org/web/20191113070416if_/http://stedolan.net:80/research/semirings-slides.pdf][Slides]]
+
+** Lattices
+
+*** [[https://www.youtube.com/watch?v=Xuxm929tIRY][Formal Concept Analysis: A Useful Example of Modern Mathematics]]
+Bernhard Ganter (2015)
+
+** Blogposts
+
+*** [[https://jrsinclair.com/articles/2019/algebraic-structures-what-i-wish-someone-had-explained-about-functional-programming/][Algebraic Structures: Things I Wished Someone Had Explained About Functional Programming (2019)]]
+
+James Sinclair
+
+*** [[http://www.tomharding.me/fantasy-land/][Fantas, Eel, and Specification (2017)]]
+Tom Harding
+
+A series of posts written to explore and explain the Fantasy Land JavaScript specification, and to introduce some concepts of functional programming.
+
+** Talks
+
+*** [[https://www.youtube.com/watch?v=YScIPA8RbVE][The Algebra of Algebraic Types (2012)]]
+Chris Taylor
+
+*** [[https://www.youtube.com/watch?v=4IPXSj5NVxQ][Abstract Algebras And Where to Find Them: Magmas, Monoids, and More! (2018)]]
+Reid Evans
+
+** Books
+
+*** [[http://elementsofprogramming.com/][Elements of Programming (2009)]]
+Alexander Stepanov and Paul McJones
+
+A book that details about the algebraic structures that were leveraged in the creation of C++ standard library
+
+*** [[https://math.hawaii.edu/~ralph/Classes/619/univ-algebra.pdf][A Course in Universal Algebra (1981)]]
+H. P. Sankappanavar and Stanley Burris
+
+An introductory book to universal algebra
+
+** Products
+
+*** [[http://www.mm-adt.org/][mmADT]] / [[https://zenodo.org/record/2565243][Stream Ring Theory]]
+Marko Rodriguez
+
+** Surveys
+
+*** [[https://wiki.haskell.org/Monad_tutorials_timeline][Monad Tutorial Timeline]]
