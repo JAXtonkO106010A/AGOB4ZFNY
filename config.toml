@@ -1,0 +1,549 @@
+baseURL = "https://cloudtekki.com"
+# [en, zh-cn, fr, ...] determines default content language
+defaultContentLanguage = "en"
+# language code
+languageCode = "en"
+title = "Cloud Tekki"
+# whether to use robots.txt
+enableRobotsTXT = true
+# whether to use git commit log
+enableGitInfo = true
+# whether to use emoji code
+enableEmoji = true
+
+# Change the default theme to be use when building the site with Hugo
+theme = "LoveIt"
+
+# Author config
+[author]
+  name = "Partheeban Kandasamy (PK)"
+  short = "PK"
+  email = "partheeban.kandasamy@gmail.com"
+  link = "/about-pk/"
+
+[params]
+  # PKIt theme version
+  version = "0.2.X"
+  # site default theme ("light", "dark", "auto")
+  defaultTheme = "auto"
+  # public git repo url only then enableGitInfo is true
+  gitRepo = "https://github.com/pksrc"
+  # which hash function used for SRI, when empty, no SRI is used ("sha256", "sha384", "sha512", "md5")
+  fingerprint = ""
+  # date format
+  dateFormat = "2006-01-02"
+  # site description
+  description = "Cloud Tekki aims to simplify and clarify technology concepts and solutions for those that strive to thrive"
+  # site keywords
+  keywords = ["Partheeban", "Kandasamy", "PK", "Cloud Tekki", "VMware", "CNA", "Cloud-Native", "Tanzu", "vSphere", "VEBA", "Vmware Event Broker Appliance"]
+  
+  # side bar
+  # limit the number of taxonomies links shown on the sidebar of each page by default.
+  numberOfTagsShown = 5 # Applies for all other default & custom taxonomies. e.g categories, brands see https://gohugo.io/content-management/taxonomies#what-is-a-taxonomy
+
+  # Maximum number of recent posts.
+  numberOfRecentPosts = 5
+
+  # Maximum number of featured posts.
+  numberOfFeaturedPosts = 3
+
+  # App icon config
+  [params.app]
+    # optional site title override for the app when added to an iOS home screen or Android launcher
+    title = "Cloud Tekki"
+    # whether to omit favicon resource links
+    noFavicon = false
+    # modern SVG favicon to use in place of older style .png and .ico files
+    svgFavicon = "/favicon.ico"
+    # Android browser theme color
+    themeColor = "#ffffff"
+    # Safari mask icon color
+    iconColor = "#5bbad5"
+    # Windows v8-10 tile color
+    tileColor = "#da532c"
+  # Search config
+  [outputs]
+    home = ["HTML", "RSS", "JSON"]
+  
+  [params.search]
+    enable = true
+    # type of search engine ("lunr", "algolia")
+    type = "lunr"
+    # max index length of the chunked content
+    contentLength = 4000
+    # placeholder of the search bar
+    placeholder = "Enter keyword to search"
+    # max number of results length
+    maxResultLength = 10
+    # snippet length of the result
+    snippetLength = 30
+    # HTML tag name of the highlight part in results
+    highlightTag = "em"
+    # whether to use the absolute URL based on the baseURL in search index
+    absoluteURL = false
+    [params.search.algolia]
+    # index = "index"
+    # appID = "PASDMWALPK"
+    # searchKey = "b42948e51daaa93df92381c8e2ac0f93"
+  # Home page config
+  [params.home]
+    # amount of RSS pages
+    rss = 10
+    # Home page profile
+    [params.home.profile]
+      enable = true
+      # Gravatar Email for preferred avatar in home page
+      gravatarEmail = ""
+      # URL of avatar shown in home page
+      avatarURL = "/img/logo/cloud-tekki.png"
+      # title shown in home page
+      title = "Demystifying Technology for those that strive to thrive"
+      # subtitle shown in home page
+      subtitle = 'CLOUD TEKKI® aims to explore new ideas and their implementation techniques that make Digital Transformation possible. Topics will be focussed around Cloud, Cloud Native Technologies, Automation Technologies, End User Computing and the synergy between People, Process and Product'
+      # whether to use typeit animation for subtitle
+      typeit = false
+      # whether to show social links
+      social = true
+      # disclaimer (HTML format is supported)
+      disclaimer = "DISCLAIMER: All opinions are Author's own. Content will evolve. Please remember to link and credit"
+      # guest posts enabled
+      guest = "Contributions from fellow Technologists are welcome. Quick start guide for [Windows](/gettingstarted/hugo-windows/) or [macOS](/gettingstarted/hugo-mac/)"
+    # Home page posts
+    [params.home.posts]
+      enable = true
+      # special amount of posts in each home posts page
+      paginate = 10
+  # Social config in home page
+  [params.social]
+    GitHub = ""
+    Linkedin = ""
+    Twitter = "pkblah"
+    # Instagram = "xxxx"
+    # Facebook = "xxxx"
+    # Telegram = "xxxx"
+    Medium = ""
+    # Gitlab = ""
+    # Youtubelegacy = "xxxx"
+    # Youtubecustom = ""
+    Youtubechannel = ""
+    # Tumblr = ""
+    # Quora = ""
+    # Keybase = ""
+    # Pinterest = ""
+    Reddit = ""
+    # Codepen = ""
+    # FreeCodeCamp = ""
+    # Bitbucket = ""
+    # Stackoverflow = ""
+    # Weibo = ""
+    # Odnoklassniki = ""
+    # VK = ""
+    # Flickr = ""
+    # Xing = ""
+    # Snapchat = ""
+    # Soundcloud = ""
+    # Spotify = ""
+    # Bandcamp = ""
+    # Paypal = ""
+    # Fivehundredpx = ""
+    # Mix = ""
+    # Goodreads = ""
+    # Lastfm = ""
+    # Foursquare = ""
+    # Hackernews = ""
+    # Kickstarter = ""
+    # Patreon = ""
+    # Steam = ""
+    # Twitch = ""
+    # Strava = ""
+    # Skype = ""
+    # Whatsapp = ""
+    # Zhihu = ""
+    # Douban = ""
+    # Angellist = ""
+    # Slidershare = ""
+    # Jsfiddle = ""
+    # Deviantart = ""
+    # Behance = ""
+    # Dribbble = ""
+    # Wordpress = ""
+    # Vine = ""
+    # Googlescholar = ""
+    # Researchgate = ""
+    # Thingiverse = ""
+    # Devto = ""
+    # Gitea = ""
+    # XMPP = ""
+    # Matrix = ""
+    # Bilibili = ""
+    Email = ""
+    RSS = true
+
+[params.css]
+    custom_css = ["css/ct.css"]
+
+[menu]
+[[menu.main]]
+  identifier = "posts"
+  # you can add extra information before the name (HTML format is supported), such as icons
+  pre = "<span class='menuicon'><img src='/img/menu/newspaper-solid.svg' class='transparent svg'/></span>"
+  # you can add extra information after the name (HTML format is supported), such as icons
+  post = ""
+  name = "Posts"
+  url = "/posts/"
+  # title will be shown when you hover on this menu link
+  title = ""
+  weight = 1
+  [menu.main.params]
+      class = "highlight-menu-item"
+[[menu.main]]
+  identifier = "tags"
+  pre = "<span class='menuicon'><img src='/img/menu/tags-solid.svg' class='transparent svg'/></span>"
+  post = ""
+  name = "Tags"
+  url = "/tags/"
+  title = ""
+  weight = 3
+[[menu.main]]
+  identifier = "categories"
+  pre = "<span class='menuicon'><img src='/img/menu/folder-open-solid.svg' class='transparent svg'/></span>"
+  post = ""
+  name = "Categories"
+  url = "/categories/"
+  title = ""
+  weight = 2
+[[menu.main]]
+  identifier = "about"
+  pre = "<span class='menuicon'><img src='/img/menu/author-circle.svg' class='transparent svg'/></span>"
+  post = ""
+  name = "About"
+  title = ""
+  weight = 4
+  url = ""
+[[menu.main]]
+  identifier = "about-pk"
+  pre = "<i class='fas fa-user-circle fa-fw author'></i>"
+  post = "<b>Sr. Product Manager @ VMW EUC</b> <br/> vExpert '20, '21 <br/> <b>Passion:</b> Automation, EUC, Cloud, Serverless, k8s, Homelab"
+  parent = "about"
+  title = ""
+  weight = 4
+  url = "/about-pk/"
+  name = "Partheeban Kandasamy (PK)"
+
+ # Section (all posts) page config
+[params.stripemenu]
+  # nothing yet
+
+ # Section (all posts) page config
+[params.section]
+  # special amount of posts in each section page
+  paginate = 20
+  # date format (month and day)
+  dateFormat = "01-02"
+  # amount of RSS pages
+  rss = 10
+
+# List (category or tag) page config
+[params.list]
+  # special amount of posts in each list page
+  paginate = 20
+  # date format (month and day)
+  dateFormat = "01-02"
+  # amount of RSS pages
+  rss = 10
+
+ # Header config
+[params.header]
+  # desktop header mode ("fixed", "normal", "auto")
+  desktopMode = "fixed"
+  # mobile header mode ("fixed", "normal", "auto")
+  mobileMode = "auto"
+  # Header title config
+  [params.header.title]
+    # URL of the LOGO
+    logo = "/img/logo/cloud-tekki-logo.png"
+    # title name
+    name = ""
+    # you can add extra information before the name (HTML format is supported), such as icons
+    #pre = "<i class='far fa-kiss-wink-heart fa-fw'></i>"
+    # you can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+    # whether to use typeit animation for title name
+    typeit = false
+
+# Footer config
+[params.footer]
+  enable = true
+  # Custom content (HTML format is supported)
+  custom = '<p><a href="/"><img src="/img/logo/cloud-tekki-logo.png" alt="CLOUD TEKKI" style="height:4rem"/></a></p> Powered by Hugo | Github Pages'
+  # whether to show Hugo and theme info
+  hugo = false
+  # whether to show copyright info
+  copyright = true
+  # whether to show the author
+  author = false
+  # site creation time
+  since = 2008
+  # ICP info only in China (HTML format is supported)
+  icp = ""
+  # license info (HTML format is supported)
+  #license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+  license= ''
+
+# Page config
+[params.page]
+  # whether to hide a page from home page
+  hiddenFromHomePage = false
+  # whether to hide a page from search results
+  hiddenFromSearch = false
+  # whether to enable twemoji
+  twemoji = false
+  # whether to enable lightgallery
+  lightgallery = true
+  # whether to enable the ruby extended syntax
+  ruby = true
+  # whether to enable the fraction extended syntax
+  fraction = true
+  # whether to enable the fontawesome extended syntax
+  fontawesome = true
+  # whether to show link to Raw Markdown content of the content
+  linkToMarkdown = true
+  # whether to show the full text content in RSS
+  rssFullText = false
+  # Table of the contents config
+  [params.page.toc]
+    # whether to enable the table of the contents
+    enable = true
+    # whether to make the table of the contents automatically collapsed
+    auto = false
+    # show twitter feed 
+    twitterfeed = true
+  # Code config
+  [params.page.code]
+    # whether to show the copy button of the code block
+    copy = true
+    # the maximum number of lines of displayed code by default
+    maxShownLines = 80
+  # KaTeX mathematical formulas config (KaTeX https://katex.org/)
+  [params.page.math]
+    enable = true
+    # default block delimiter is $$ ... $$ and \\[ ... \\]
+    blockLeftDelimiter = ""
+    blockRightDelimiter = ""
+    # default inline delimiter is $ ... $ and \\( ... \\)
+    inlineLeftDelimiter = ""
+    inlineRightDelimiter = ""
+    # KaTeX extension copy_tex
+    copyTex = true
+    # KaTeX extension mhchem
+    mhchem = true
+  # Mapbox GL JS config (Mapbox GL JS https://docs.mapbox.com/mapbox-gl-js)
+  [params.page.mapbox]
+    # access token of Mapbox GL JS
+    accessToken = "pk.eyJ1IjoiY2xvdWR0ZWtraSIsImEiOiJja2lxZDRhN3cwZDgwMnRvOHY0c3cyOW1yIn0.HcNaCOKf0e6U6VM8qUGjDg"
+    # style for the light theme
+    lightStyle = "mapbox://styles/mapbox/light-v10?optimize=true"
+    # style for the dark theme
+    darkStyle = "mapbox://styles/mapbox/dark-v10?optimize=true"
+    # whether to add NavigationControl (https://docs.mapbox.com/mapbox-gl-js/api/#navigationcontrol)
+    navigation = true
+    # whether to add GeolocateControl (https://docs.mapbox.com/mapbox-gl-js/api/#geolocatecontrol)
+    geolocate = true
+    # whether to add ScaleControl (https://docs.mapbox.com/mapbox-gl-js/api/#scalecontrol)
+    scale = true
+    # whether to add FullscreenControl (https://docs.mapbox.com/mapbox-gl-js/api/#fullscreencontrol)
+    fullscreen = true
+  # Social share links in post page
+  [params.page.share]
+    enable = true
+    Twitter = true
+    Facebook = false
+    Linkedin = true
+    Whatsapp = true
+    Pinterest = false
+    Tumblr = false
+    HackerNews = false
+    Reddit = true
+    VK = false
+    Buffer = false
+    Xing = false
+    Line = false
+    Instapaper = false
+    Pocket = false
+    Digg = false
+    Stumbleupon = false
+    Flipboard = false
+    Weibo = false
+    Renren = false
+    Myspace = false
+    Blogger = true
+    Baidu = false
+    Odnoklassniki = false
+    Evernote = false
+    Skype = false
+    Trello = false
+    Mix = false
+  # Comment config
+  [params.page.comment]
+    enable = true
+    # Disqus comment config (https://disqus.com/)
+    [params.page.comment.disqus]
+      enable = false
+      # Disqus shortname to use Disqus in posts
+      shortname = "P.K"
+    # Gitalk comment config (https://github.com/gitalk/gitalk)
+    [params.page.comment.gitalk]
+      enable = false
+      owner = "pksrc"
+      admin = ['pksrc']
+      repo = "cloudtekki"
+      clientId = "506810bef519daad2096"
+      clientSecret = "2cd827f835beec6ed9d453fe55aea74d21987b24"
+    # Valine comment config (https://github.com/xCss/Valine)
+    [params.page.comment.valine]
+      enable = false
+      appId = "asdas-MdYXbMMI"
+      appKey = "asdasdada"
+      placeholder = ""
+      avatar = "mp"
+      meta = ""
+      pageSize = 10
+      lang = ""
+      visitor = true
+      recordIP = true
+      highlight = true
+      enableQQ = false
+      serverURLs = ""
+    # Telegram comments config (https://comments.app/)
+    [params.page.comment.telegram]
+      enable = false
+      siteID = ""
+      limit = 5
+      height = ""
+      color = ""
+      colorful = true
+      dislikes = false
+      outlined = false
+    # Commento comment config (https://commento.io/)
+    [params.page.comment.commento]
+      enable = false
+    # Utterances comment config (https://utteranc.es/)
+    [params.page.comment.utterances]
+      enable = true
+      # owner/repo
+      repo = "pksrc/cloudtekki"
+      issueTerm = "pathname"
+      label = ""
+      lightTheme = "github-light"
+      darkTheme = "github-dark"
+  # SEO config
+  [params.page.seo]
+    # Publisher info
+    [params.page.seo.publisher]
+      name = "Cloud Tekki"
+      [params.page.seo.publisher.logo]
+        url = "logo.png"
+        width = 127
+        height = 40
+    # Logo info
+    [params.page.seo.logo]
+      url = ""
+      width = 127
+      height = 40
+    # Image info
+    [params.page.seo.image]
+      url = "cover.png"
+      width = 800
+      height = 600
+
+# Site verification code for Google/Bing/Yandex/Pinterest/Baidu
+[params.verification]
+  google = "ToBeFilled"
+  bing = ""
+  yandex = ""
+  pinterest = ""
+  baidu = ""
+
+# Analytics config
+[params.analytics]
+  enable = true
+  # Google Analytics
+  [params.analytics.google]
+    id = "G-RYVG6M042F"
+    # whether to anonymize IP
+    anonymizeIP = true
+    # whether to use cookie
+    cookie = false
+  # Fathom Analytics
+
+# Cookie consent config
+[params.cookieconsent]
+  enable = true
+  # text strings used for Cookie consent banner
+  [params.cookieconsent.content]
+    message = ""
+    dismiss = ""
+    link = ""
+
+# CSS and JS Files CDN
+[params.cdn]
+  # CDN data file name, disabled by default
+  # ("jsdelivr.yml")
+  # located in "themes/LoveIt/assets/data/cdn/" directory
+  # you can store your own data files in the same path under your project:
+  # "assets/data/cdn/"
+  data = "jsdelivr.yml"
+    
+# Markup related configuration in Hugo
+[markup]
+  # Syntax Highlighting (https://gohugo.io/content-management/syntax-highlighting)
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    # false is a necessary configuration (https://github.com/dillonzq/LoveIt/issues/158)
+    noClasses = false
+  # Goldmark is from Hugo 0.60 the default library used for Markdown
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.renderer]
+      # whether to use HTML tags directly in the document
+      unsafe = true
+  # Table Of Contents settings
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+# TypeIt config
+[params.typeit]
+  # typing speed between each step (measured in milliseconds)
+  speed = 100
+  # blinking speed of the cursor (measured in milliseconds)
+  cursorSpeed = 1000
+  # character used for the cursor (HTML format is supported)
+  cursorChar = "|"
+  # cursor duration after typing finishing (measured in milliseconds, "-1" means unlimited)
+  duration = 0
+
+# Permalinks config (https://gohugo.io/content-management/urls/#permalinks)
+[Permalinks]
+  # posts = ":year/:month/:filename"
+  posts = "/post/:filename"
+
+# Privacy config (https://gohugo.io/about/hugo-and-gdpr/)
+[privacy]
+  # privacy of the Google Analytics (replaced by params.analytics.google)
+  [privacy.googleAnalytics]
+    # ...
+  [privacy.twitter]
+    enableDNT = true
+  [privacy.youtube]
+    privacyEnhanced = true
