@@ -1,0 +1,29 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "app"
+    }
+  ],
+  "settings": {
+    "cSpell.words": [
+      "cmplx",
+      "elif",
+      "focusable",
+      "RGBO",
+      "slex",
+      "smpl",
+      "summands"
+    ],
+    "liveServer.settings.multiRootWorkspaceName": "mathebuddy"
+  },
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "vscjava.vscode-java-debug",
+      "mathebuddy.mbl-language-extension"
+    ]
+  }
+}
