@@ -1,0 +1,25 @@
+{
+  "version": "0.2",
+  "allowCompoundWords": true,
+  "ignorePaths": [],
+  "ignoreRegExpList": [
+    ":.*:",
+    "arn:.*"
+  ],
+  "words": [
+    "boto",
+    "botocore",
+    "eicar",
+    "gcloud",
+    "pqfunction",
+    "Spdx",
+    "strftime",
+    "tfvars",
+    "urlunsplit",
+    "vnet",
+    "ampls"
+  ],
+  "ignoreWords": [
+    "fileb"
+  ]
+}
