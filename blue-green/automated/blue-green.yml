@@ -1,0 +1,147 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: chip
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+        - cluster: https://kubernetes.default.svc                                       
+  template:
+    metadata:
+      name: chip
+    spec:
+      project: "chip"
+      source:
+        repoURL: 'http://chartmuseum.chartmuseum.svc.cluster.local:8080'
+        chart: sample
+        targetRevision: 0.1.0
+        helm:
+          releaseName: chip
+          valuesObject:
+            app:
+              name: chip
+              image: fidelissauro/chip:v1
+              namespace: chip
+              version: "v3"
+              iam: ""
+              capacity:
+                requests: 
+                  cpu: 100m
+                  memory: 128Mi
+                limits: 
+                  cpu: 200m
+                  memory: 256Mi
+                autoscaling: {}
+                min: 5
+                max: 5
+              rollout:
+                strategy:
+                    blueGreen: 
+                      activeService: chip
+                      previewService: chip-green
+                      autoPromotionEnabled: false
+                      prePromotionAnalysis:
+                        templates:
+                        - templateName: http-bench-analysis
+                        - templateName: chip-check-success
+
+                analysisTemplates:
+
+                - name: http-bench-analysis
+                  spec:
+                    metrics:
+                    - name: http-bench-analysis
+                      failureLimit: 1
+                      provider:
+                        job:
+                          spec:
+                            backoffLimit: 1
+                            template:
+                              metadata:
+                                labels:
+                                  istio-injection: disabled
+                                  sidecar.istio.io/inject: "false"
+                              spec:
+                                containers:
+                                - name: http-bench-analysis
+                                  image: rogerw/cassowary:v0.14.0
+                                  command: ["cassowary"]
+                                  args: ["run", "-u", "http://chip-green.chip.svc.cluster.local:8080/system", "-c", "3", "-n", "1000"]
+                                restartPolicy: Never
+                    count: 1
+
+                - name: 'chip-check-success'
+                  spec:
+                    metrics:
+                    - name: success-rate
+                      interval: 1m
+                      successCondition: result[0] >= 0.95
+                      failureLimit: 1
+                      provider:
+                        prometheus:
+                          address: http://prometheus-kube-prometheus-prometheus.prometheus.svc.cluster.local:9090
+                          query: |
+                            sum(irate(
+                              istio_requests_total{destination_service=~"chip-green.chip.svc.cluster.local",response_code!~"5.*"}[1m]
+                            )) /
+                            sum(irate(
+                              istio_requests_total{destination_service=~"chip-green.chip.svc.cluster.local"}[1m]
+                            ))
+                      count: 1 
+
+              envs:
+                - name: VERSION
+                  value: "v3"
+
+              port:
+                name: http-web
+                port: 8080
+                protocol: TCP
+                targetPort: 8080
+              service:
+                type: ClusterIP
+              istio:
+                gateway: 
+                  selector: ingressgateway
+                  # HTTP, HTTP2, GRPC, GRPC-WEB, MONGO, REDIS, MYSQL, TCP
+                  protocol: HTTP 
+                  port: 80
+                host: chip.homelab.msfidelis.com.br
+                virtualService:
+                  http:
+                    enabled: true
+                    retries:
+                      attempts: 1
+                      perTryTimeout: 500ms
+                      retryOn: refused-stream
+                DestinationRule:
+                  enabled: true
+
+              prometheus:
+                scrape: "true"
+                port: 8080
+                path: /metrics
+
+              probes:
+                livenessProbe:
+                  enabled: true
+                  failureThreshold: 10
+                  periodSeconds: 10
+                  httpGet:
+                    path: /healthcheck
+                    port: 8080
+                startupProbe:
+                  enabled: true
+                  failureThreshold: 10
+                  periodSeconds: 10
+                  httpGet:
+                    path: /healthcheck
+                    port: 8080
+
+      destination:
+        server: '{{ cluster }}'
+        namespace: argocd
+      syncPolicy:
+        automated: {}
