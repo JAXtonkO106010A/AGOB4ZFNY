@@ -1,0 +1,14 @@
+{
+  "site": {
+    "id": "71e975cf-8a38-4294-ab3b-4d70ad47ec42",
+    "team": "protocollabs-team",
+    "platform": "ipfs",
+    "source": "ipfs",
+    "name": "proto.school"
+  },
+ "build": {
+   "image": "fleek/puppeteer:cypress",
+   "command": "npm run build:fleek",
+   "publicDir": "dist"
+ }
+}
