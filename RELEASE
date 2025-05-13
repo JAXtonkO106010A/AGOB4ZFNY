@@ -1,0 +1,1454 @@
+    ___                _____            __
+   /   |  ____  ____  / ___/_________  / /___
+  / /| | / __ \/ __ \ \__ \/ ___/ __ `/ // _ \
+ / ___ |/ /_/ / /_/ /___/ / /__/ /_/ / //  __/
+/_/  |_/ .___/ .___//____/\___/\__,_/_/ \___/
+      /_/   /_/
+
+AppScale version 3.8.1, released October 2019
+Highlights of features and defects fixed in this release:
+ - Fixes a regression in the 3.8 release where push tasks could not be executed
+   if the task URL had "secure: always" set.
+
+Known Issues:
+
+AppScale version 3.8.0, released September 2019
+Highlights of features and defects fixed in this release:
+ - Login continue scheme
+ - Dispatch Routing from yaml
+ - Install newer psutils to handle kernel 5.X output of /proc/diskstats
+ - Allow custom service accounts for restore operations
+ - Remove Cassandra-specific backup/restore scripts
+ - Fix usages of ZKTransaction class
+ - Update bootstrap.sh usage text for agents
+ - Stop unassigned services
+ - Remove Fixnum warning
+ - Remove old zk nodes structure
+ - Remove outdated scripts
+ - Display a selection menu for available accounts
+ - Remove support for Debian Jessie
+ - Search backup restore
+ - Store FoundationDB clusterfile content in Zookeeper
+ - Use monotonic module when measuring intervals
+ - Limit connection retries when stopping celery
+ - Support custom service accounts for datastore_admin backups
+ - Install FoundationDB client libraries
+ - UA Server backup/restore
+ - Add a rough interface for managing service accounts
+ - Remove M2Crypto dependency
+ - Retry applying transaction mutations
+ - AppController haproxy reload via monit
+ - Escape property values when outputting table
+ - Be more flexible when selecting a composite index
+ - Remove ntp dependency
+ - Flatten path before extracting the entity group
+ - Check if we have flower, and added dependency
+ - Remove iaas system manager
+ - Disable ssl verification for Java application server channel client
+ - AppController command output to standard error / logging verbosity
+ - No need to use sudo during installation
+ - Search2 integrated
+ - Datastore service assignments calculated by admin server not controller
+ - Delete SDK from AppTaskQueue
+ - AppController update jsp jar when rebuilding java application server
+ - Java 8 runtime
+ - Add initial FDB datastore backend implementation
+ - Handle scheme redirects with the dispatcher
+ - Fix non-cloud mode of AppScale launch.
+ - Perform datastore operations in batches
+ - Scaled nodes changes
+ - Stop services concurrently
+ - Higher TaskQueue e2e test stability
+ - AppServer generate internal admin login secret where needed
+ - Add initial implementation of datastore-backed sessions
+ - App cert
+ - Move of appscale.tools.agents to appscale.agents - appscale repo.
+ - Fix python detection in taskqueue tests
+ - Better venvs support in AppController
+ - Resolving dependencies between tq and adminserver
+ - AppServer admin server module should not be enabled for python runtime
+ - Do not modify /root file mode on install
+ - Remove support for trusty
+ - Increase the monit safety sleep time
+ - Limit version of cassandra-driver
+ - Dont override hostname
+ - Use pymemcache to implement the memcache API
+ - Remove local_ip helper function
+ - Splitting service specific and service common code
+ - Retry 3 times with backoff on socket err in AppServer
+ - AppServer request environment setup
+ - Remove old soap calls
+ - Fix the Ruby client's get and set property methods
+ - Blobstore application id header and relative success url
+ - AppServer ensure request type set for request
+ - Add check for system stats
+ - Use the Python API server for some Java runtime calls
+ - Removed cached local IP
+ - Pass app identity calls to the external API server
+ - Datastore service index manager zookeeper callback state parameter
+ - Avoid using localhost when waiting for service
+ - Use output of appscale-admin summary
+ - Check for more results during query
+ - Remove haproxy statistics page
+ - Clear monit environment variables before exec
+ - Enforce min machines
+ - Cron schedule list parsing and sub-daily interval crontab generation
+ - Update default config for java runtime
+ - Move protobuffer handling to different level
+ - Remove HAProxy stats URL
+ - Wait for result before setting chosen task name
+ - Add faceted search support to the Python runtime
+ - Continue batch query if limit hasn't been reached
+ - Restart unavailable instances
+ - Allow push queue bucket size and max concurrent requests parameters
+ - Datastore entity locking resolve deadlock retry syntax
+ - Async coroutine retry for datastore large batches
+ - Ensure application instances logger tag is 32 characters or less
+ - Datastore statistics timestamp second resolution
+ - Configure open file limit for monit
+ - Add B* instance classes
+ - Proxy stats 7x performance improvement
+ - Add aws_subnet_id controller option
+ - Allow "__key__" along with other equality filters
+ - Remove "for_cas" field requirement on set
+ - Access AC and AdminServer with private IPs
+ - Remove dead code from helper library
+ - Only list unique items in project list
+ - Prevent SDK from starting more than one instance
+ - Remove login role
+
+Known Issues:
+
+AppScale version 3.7.1, released May 2019
+Highlights of features and defects fixed in this release:
+ - Update cron when login property is changed
+ - Remove --force-private from fast-start.sh
+ - use dns for ec2 since it resolves to the private ip for marketplace
+ - Other clouds will use public ips for login property
+
+Known Issues:
+
+AppScale version 3.7.0, released April 2019
+Highlights of features and defects fixed in this release:
+ - InfrastructureManager restructure
+ - Change jobs to roles
+ - Raise API server errors as Java exceptions
+ - Don't add tag data to task if the task has none
+ - Rescue Errno::EHOSTUNREACH
+ - Add a timeout to the health check request
+ - Retry dashboard deploy operations on timeout
+ - Remove monit maintenance port from the firewall.
+ - Add required ProjectGroomer argument
+ - Remove index management from datastore clients
+ - Add standalone API Server from SDK
+ - Update allocate methods in datastore stubs
+ - Replacing zookeeper_locations.json with zookeeper_locations
+ - Bound update threads
+ - Use initial flags from increment request
+ - Add partition list to RabbitMQ stats snapshot
+ - get_index method reorganizing
+ - Made appscale.common python3 compatibility changes
+ - Drop requests that don't match the login property
+ - Use login property when setting cron locations
+ - Ensure requests to channel path match
+ - Use login property as ejabberd host
+ - Serving status modification for application versions with manual scaling
+ - Route instances as soon as they are registered
+ - Smooth current sessions for autoscaling
+ - Don't wait for autoscaled nodes
+ - Add support for the target field for cron jobs
+ - Rework search query parsing and building
+ - Limit the number of entities fetched per statement
+ - Store hints within the persistent state directory
+ - Communicate with ejabberd using private IP address
+ - Accept multiple values per field in SearchService
+ - Handle datastore connection errors with TQ server
+ - AdminServer application deployment check now ignores working directory
+ - Master reload state
+ - Postgres connection pool with autoreconnect
+ - Accept single exception class as retry_on_exception value
+ - Terminate not started AppServers first
+ - Check for valid local source archive
+ - Project ID validation upgrade
+ - Application scaling for version configuration
+ - Added service ID validation and modified version ID validation.
+ - Implement apps.services.list
+ - Exit early if version is not found in zookeeper
+ - Use zookeeper for stopped versions
+ - Ec2 private ips
+ - Defer to vendored framework for endpoints 2
+ - Accept all arguments to _handle_request
+ - Move blob fetching work to DatastoreBlobReader
+ - Use a fallback mechanism on connection failures
+ - Test query that exceeds Cassandra page size
+ - Use gossip to find live Cassandra nodes
+ - Collect each page of results within callback
+ - Improve speed of rebalance script
+ - Move instance fulfillment work to InstanceManager
+ - Allow change instance type
+ - Add cassandra status to Hermes
+ - Fix snapshots caching in Hermes
+ - Force the push worker to time out stuck tasks
+ - Optimize Service Stats
+ - Make communication with rabbitmq async (in Hermes)
+ - Fix list_tasks method in TaskQueue
+ - Taskqueue load test
+ - Taskqueue e2e test
+ - enable-datastore-viewer.sh: Fix command extracting admin port
+ - Add IndexManager
+ - Re-add editing capabilities to datastore viewer
+ - Add basic pull queue viewer to dashboard
+ - Logging update to use per-module loggers
+ - Run datastore servers in a custom slice
+ - Add support for Bionic
+ - Add support for Stretch
+ - Remove support for wheezy
+ - Fix bionic php dependencies  
+ - Use the unittest module to run end-to-end tests
+ - Use a patched version of Cassandra
+ - Decrease Cassandra heap size when sharing roles
+ - Install Python MySQL client during build
+ - Update Python and PHP runtime to 1.8.4 SDK
+ - Pin SOAPpy to version 0.12.22
+ - Require attrs>=18.1.0
+ - Ensure newer version of PyYAML is installed
+
+Known Issues:
+
+
+AppScale version 3.6.0, released August 2018
+Highlights of features and defects fixed in this release:
+ - Close PG connection when cleaning up project
+ - Catch QueueNotFound error in TQ REST API
+ - Use security token when making Monit API calls
+ - Add E2E test for queries involving ID separator
+ - Error handling for starting or terminating instances
+ - Handle UpdateIndexes calls
+ - Add appscale-admin restart command
+ - Use hmac helper for authentication check
+ - Stop services in a particular order
+ - Handle ID separator in key name
+ - Do not delete push task names immediately
+ - Fix nginx config for handlers with secure field
+ - Reduce diffs with the 1.8.0 SDK (Part 2)
+ - Autoscale logs
+ - Remove BR service
+ - Do not validate SSL certs for SOAP services
+ - PullQueueus on postgresql
+ - Copy PATH variable from controller environment
+ - Detect missing row when applying transaction
+ - Install older tornado when Python is too old
+ - Add transactional counter test
+ - Remove indexless sorted ancestor queries
+ - Counts only ESTABLISHED connections
+ - Reject lease modifications that specify wrong ETA
+ - Controller application upload error output now escaped
+ - AppManager should not re-extract source for an application revision
+ - Determine new_eta for leased tasks later
+ - Use ranges to keep track of merge join queries
+ - AppDashboard redirect cleanup
+ - Java app server disable TLSv1 protocol
+ - Use yaml.safe_load rather than yaml.load
+ - Simplify rollback_transaction method
+ - Install headless OpenJDK package
+ - Remove sshguard
+ - Java AppServer javac build options update for version and debug
+ - Continue preparing archive despite being a hoster
+ - Limit version of soap4r-ng
+ - Disable TLS for ejabberd's http_bind module
+ - Add more logging to pull queue operations
+ - Restart rsyslog so the app logs can be recreated
+ - Clean up group locks when possible
+ - Fix blobstore-backed GCS operations
+ - Use HTTP API to stop Monit services
+ - Skip Nginx connection change for Docker build
+ - Define proper Java version for Trusty
+ - Assign the proper number of datastore to machines
+ - RM-626 Fetch application archive as soon as it's available in deployment
+ - Handle NoSuchProcess error as success when terminating process
+ - Increase open file limit for nginx
+ - Handle reads with the index past the last block
+ - Replace stub with TaskQueue client
+ - Wait for all hosts before creating tables
+ - RM-550 Hermes taskqueue stats
+ - Reduce diffs with the 1.8.0 SDK
+ - Handle timeouts when querying available tasks
+ - Ensure Celery worker gets restarted
+ - Allow PHP instances to use external API server
+ - Skip stats generation on undeployed projects
+ - AppController appserver check thread should exit when there is no work
+ - Handle "service" element
+ - Use external App Identity service for Java apps
+ - Install OpenJDK 8 on Trusty
+ - Allow Go instances to use external API server
+ - Continue starting deployment if system user exists
+ - Handle exception when fetching datastore servers
+ - Use the ServiceManager to start datastore servers
+ - Retry creating system users when AppScale starts
+ - RM-542 Async datastore (communication with Cassandra)
+ - Fix the version delete API method
+ - Give more informative messages for GQL errors
+ - Fix dashboard app list
+ - Issue-2731 Increase Hermes concurrency
+ - Consider the version's previous ports as available
+ - RM-616: Use project_id not versions_key to list apps
+ - Retry operations when nodes are not available
+ - RM-624 Start AppManager on compute nodes only
+ - Define the Cassandra cluster load balancing policy
+ - Register instances with ZooKeeper
+ - Allow Java AppServer to use an external API Server
+ - Upgrade to Cassandra 3.11.2
+ - Add option to update all composite indexes
+ - RM-592 - Ensure haproxy configuration is up-to-date
+ - Adjustable max appservers
+ - Simplify datastore error handling
+ - Pin eventlet version
+ - Replace usages of execute_concurrent
+ - Add a scatter property to some entities
+ - Use datastore server registry to toggle read-only mode
+ - Handle docker as a provider
+ - Wait for all load balancers to route instances
+ - RM-589 handle failure on fetching local stats
+
+
+Known Issues:
+
+
+AppScale version 3.5.3, released June 2018
+Highlights of features/bugs in this release:
+ - Issue-2813 - Controller won't start with latest version of soap4r-ng (2.0.4) 
+
+Known Issues:
+
+
+AppScale version 3.5.2, released May 2018
+Highlights of features/bugs in this release:
+
+ - Issue-2770 - Groups are not locked during commit
+
+Known Issues:
+
+
+AppScale version 3.5.1, released April 2018
+Highlights of features/bugs in this release:
+ - Upgrade to Cassandra 3.11.2
+ - Handle Docker as a provider
+
+Known Issues:
+
+
+AppScale version 3.5.0, released March 2018
+Highlights of features/bugs in this release:
+
+ - Add datastore viewer to the dashboard
+ - Improve lb responsiveness
+ - Transaction groomer
+ - Add push queue stats to Hermes
+ - Allow group locks to persist when commits fail
+ - Allow different instance type per role
+ - Handle key inequality filter within property value
+ - Change appengine role to compute
+ - Whitelist inbound service warmup
+ - Run apps without application element in app.yaml
+ - Use prefix for the haproxy app config file
+ - Prevent ProjectGroomer worker from stopping
+ - Stick to the duty cycle length
+ - Capture Net::ReadTimeout when using Net::HTTP
+ - Haproxy consolidate apps
+ - Patch for GAE Issue # 12783 - Conditional import of RAND_egd from _ssl
+ - Don't clear cron jobs during an up
+ - Remove tcp_tw_recycle option
+ - Replace reference to deprecated role
+ - Reduce Cassandra memory if running other services
+ - Allow the dashboard to be updated
+ - Differentiate between project IDs and version keys
+ - Encode entity names when acquiring lock
+ - Add external API server
+ - Allow Hermes to check RabbitMQ status
+ - Fix JSP compilation under Java 8
+ - Handle missing WEB-INF directory
+ - Account properly for pending AppServer.
+ - Handle UpdateCron requests
+ - Quote environment variables
+ - Don't wait for taskqueue master to start rabbitmq
+ - Autoscale with N load balancer nodes
+ - Set log after restart
+ - Clear logs when flushing
+ - Add support for Jessie
+ - Remove support for precise
+ - Use tornado coroutines when performing retries. 
+ - Add bin, bout, hrsp_4xx, hrsp_5xx to proxy.frontend include list
+ - Retrieve inbound services from ZooKeeper
+ - Start proper epmd service even without RabbitMQ
+ - Perform ZK operations off of the Kazoo thread
+ - Keep track of ZooKeeper state with TransactionManager
+ - Move AppControllerClient to separate package
+ - Kill instances when they exceed memory limit
+ - Set up blobstore routing on each load balancer
+ - Wait after a restore for cluster to be ready
+ - Access Tokens for Admin API
+ - Forward add_routing_for_appserver
+ - Include version headers when making TQ requests
+ - Do not raise HttpError outside context of HTTP request
+ - Use custom template for combined app log messages
+ - Define property name based on rsyslog version
+ - Return appropriate error when a queue is not found
+ - Fix pidfile for RabbitMQ in Docker
+ - Add sandbox function for expanduser.
+
+
+Known Issues:
+
+
+AppScale version 3.4.0, released Oct, 2017
+Highlights of features/bugs in this release:
+- Upgraded Appscale images to Xenial
+- Introduced ability to deploy and manage multiple services
+- Improved celery worker performance by using eventlet pool
+- Reduced the number of dashboards running for smaller deployment
+- Added capability to store version details in Zookeeper
+- Upgraded Cassandra to 3.11
+- Improved various autoscaling policies
+- Reduced verbosity of logs to improve readability
+- Fixed a bug which left behind old celery producer connections
+- Moved Hermes configurations to Zookeeper
+- Added support for UpdateQueues API
+- Allowed external access to Hermes
+- Allowed use of separate HAProxy for appservers and services
+- Handled graceful instance termination with the AppManager
+- Handled graceful stop of Taskqueue servers
+- Added some monit interface improvements
+- Fixed a bug which allowes datastore clients to keep connections alive
+- Changed hosting structure to manage revisions
+- Allowed haproxy timeout to be tunable from the tools
+- Removed the need for email address while deploying apps
+- Fixed a bug to consider nodes with open role before spawning new instances
+- Fixed HAProxy stop commands
+- Removed tracking of application metadata from UAServer and relied on Zookeeper instead
+- Added support for resumable package downloads after failures during the build
+- Implemented the datastore_v4.AllocateIds API
+- Upgraded to Kazoo to 2.4.0
+- Fixed a bug which allowed to properly handle non-ascii codes in Search API
+
+Known issues:
+- Transactional tasks do not currently work for Java
+- Combined application logs are not currently available in Xenial
+
+AppScale version 3.3.0, released June, 2017
+Highlights of features/bugs in this release:
+- Added support for Ubuntu Xenial
+- Improved autoscaling mechanism to rely on resources capacity
+- Removed unnecessary DB request while adding task
+- Fixed a bug that caused a DB request to hang indefinitely
+- Improved log collection command on appscale-tools
+- Simplified the process for enabling the datastore-viewer
+- Fixed ejabberd configuration and installation on Azure
+- Manual scaling with add-instances in cloud
+- Added retry for queue operations to improve reliability
+- Clearer error messages if AppScale is not configured correctly
+- Fixed a bug that could cause inconsistent state of task when it’s deleted
+- Starting only one process per BRServer for easier monitoring
+- Improved task queue leases performance
+- Fixed a bug with single-property cursor queries that have an equality filter on a multi-valued property
+- Improved load balancer configurations
+- Improved handling of datastore timeout
+- Allocating entity IDs in blocks
+- Added base support of Google Admin API
+- Improved monitoring of running AppScale processes
+- Added docs for starting datastore on its own
+- Starting AppScale services in background
+- Fixed a bug with a pillow version used for Images API
+- Improved rabbitmq stability
+- Keep redirect URL after creating a user
+- Added performance profiling
+- Other minor improvements and fixes
+
+Known issues:
+- Transactional tasks do not currently work for Java
+
+AppScale version 3.2.1, released April, 2017
+Highlights of features/bugs in this release:
+- Fixed appscale upgrade from 3.1.0
+- Added dependency python-twisted
+- Build when repo update is not required
+
+AppScale version 3.2.0, released April, 2017
+Highlights of features/bugs in this release:
+- Added support for appscale ssh to role
+- Added request ids to TaskQueue and Datastore logs
+- Integrated Azure Scale Sets into the agent
+- Modified Azure agent to assign Public IPs only for load balancers
+- Refined appscale down: added --terminate option
+- Redesigned the AppScale Dashboard and added relocate functionality
+- Improved Map Reduce and Pipeline support
+- Improved appscale get/set property functionality
+- Improved appscale status output (in particular for large deployments)
+- Improved latency and behavior for autoscaling AppServers and instances
+- Improved startup time of AppScale.
+- Put centralized Datastore HAProxy on all load balancers
+- Put centralized TaskQueue HAProxy on all load balancers
+- Fixed a bug that prevented Cassandra from being restarted in some cases after a restore
+- Fixed a bug that could lose application requests during a redeploy.
+- Fixed concurrency issues during commits in the datastore
+- Fixed a bug with GCE persistent storage being mounted incorrectly
+- Fixed a bug that caused overloading a single taskqueue node
+- Fixed a bug parsing cron jobs when time was  0 and 60
+- Fixed a bug where agents would default to spot instances
+- Fixed Zookeeper configuration for maximum client connections
+- Simplified deployment state handling (merged locations yaml and locations json file)
+- Upgraded Cassandra to 3.7
+- Upgraded Go to 1.6 and added support for vendoring
+- Install Java 8 for Cassandra usage on compatible machine
+- Pin wstools to 0.4.3
+- Pin tornado to 4.2.0
+- Pin google-api-python-client to 1.5.4
+- Added dependencies: capnproto, pycapnp
+
+Known Issues:
+- There can be some brief downtime when redeploying or updating an application
+
+AppScale version 3.1.0, released September, 2016
+- Added support for using Azure as an infrastructure
+- Added preliminary support for pull queues
+- Added support for more cron formats
+- Changed the dashboard, allowing it to be treated like a normal application
+- Added flexibility to the Java queue configuration parsing process
+- Upgraded Cassandra to 2.2.7
+- Made large batch statements and transactions more reliable
+- Fixed a bug that prevented multiple dashboard AppServers from running
+- Fixed a bug that caused instability when min was undefined
+- Fixed a bug that prevented the dashboard from deploying an application
+- Fixed a bug that prevented queue configuration changes from taking effect
+- Fixed crash when instance_class or max_concurrent_requests were defined
+
+AppScale version 3.0.1, released July, 2016
+Highlights of features/bugs in this release:
+- Set num tokens without defining initial token to fix problem with restarts
+- Fixed bootstrap script to continue upgrade even when detached from HEAD
+- Ensure monit is running during an upgrade
+- Added Datastore metadata table in the view all records script.
+
+AppScale version 3.0.0, released July, 2016
+Highlights of features/bugs in this release:
+- Fixed bug with not capping negative numbers at 0 in Memcache API decr()
+- Switched to new clustering tool for RabbitMQ
+- Fixed bug with key namespaces in Zookeeper transactions
+- Locked down UserAppService external port as it's not needed anymore
+- Removed unused pycassa references
+- Modified dev/test script for deleting all data to run for a single app ID
+- Fixed bug in deploying the AppScale dashboard that was preventing login
+- Added RabbitMQ/Celery cleanup upon appscale clean
+- Specified JSON gem that works with supported version of Ruby
+- Added composite index deletion logging
+- Write datastore transaction data on commit
+- Upgraded to Cassandra 2.1.15
+- Added retry mechanism for connecting to Cassandra
+- Wait until Zookeeper and enough Cassandra nodes are up to perform upgrade
+- Fixed bug in entity validation during upgrade
+- Don't require user input during SSH
+- Initialize Cassandra config before database upgrade
+- Fixed bug in choosing a host for a push task URL hook
+- Log monit service errors
+- Log the upgrade progress
+- Remove app archive upon appscale remove/undeploy
+- Removed unused code in AppTaskQueue
+- Delete push tasks after completion/expiration
+- Fixed bug with updating cron upon app redeploy
+- Added logging of datastore results in debug mode
+- Removed confusing error about non-existing dir during bootstrap
+- Avoid unsafe disk operations on mount
+- Wait for at most 30 seconds for a monit operation
+- Wait for database quorum for all tokens on start
+
+AppScale version 2.9.0, released June, 2016
+Highlights of features/bugs in this release:
+- Added an upgrade mechanism to make future platform upgrades easier
+- Gave ZooKeeper more responsibility for keeping track of configuration state
+- Fixed the "Delete App" functionality in the dashboard
+- Fixed a bug that regenerated nginx files needlessly
+- Adjusted the placement logic of new AppServers to improve fault tolerance
+- Improved AppController stability
+- Fixed certificate verification in some cases when a server uses SNI
+- Included more AppServer information in the output of 'appscale status'
+- Provided a more useful error message for invalid node layouts
+- Moved the Cassandra installation directory outside of the Git repository
+- Added logging to the UAServer
+
+AppScale version 2.8.0, released May, 2016
+Highlights of features/bugs in this release:
+- Alternative install for zookeeper was removed
+- Start cron in docker for faststart
+- Run AppDashboard tests by using nosetests in Rakefile
+- Include ssl port in AppDasboard /apps/json route
+- Round up cpu usage in appscale status
+- Added HAProxy for UserAppServer
+- Allow datastore to operate in read-only mode
+- Better exception handling by raising specific errors
+- System stats are now reported by the SystemManager
+- Added deployment key to GCE instance metadata
+- Added ability to gather system and platform stats in the AppController
+- Defined celery amp backend as scheme
+- Added app log rotate when appengine role is not running
+- Removed the ability to call monit remotely from MonitInterface
+- Removed log rotate scripts for apps during terminate
+- Hermes collects monitoring stats from all deployment nodes
+- Ensure Datastore logging is configured correctly
+- Changed AppController's monit start command to only start Ruby process
+- Omitted python version in application stats
+- Changed the use of killall to stop the AppController
+- Allow multiple filters on kindness queries
+- Removed duplicate continue path for Java authentication redirects
+- Added HAProxy routing for BlobServer
+- Have the controller log to STDOUT
+- Cleaned up invalid kind indices
+- Fixed multiple equality filters for NDB queries
+- Updated the query cursor format to use the one introduced in 1.5.1 SDK
+- Reduced build verbosity
+- Updated Go to version 1.4.3
+- Added new methods in the AppController for the tools to call out to the UserAppServer
+- Coordinate backup and restore operations from head node
+- Allow Cassandra restore to run without prompting
+- Check available space on backup output directory
+- Support for new amd64 relocations
+- Deploy appscalesensor app for registered deployments
+- Cleaner UserAppServer responses
+
+AppScale version 2.7.1, released February, 2016
+Highlights of features/bugs in this release:
+- A bug in get_app_data that affected upgrades was fixed
+- AppScale can be built on Debian Wheezy
+- AppScale can be built on a Raspberry Pi 2
+- Python applications can now use the vendor module
+- Datastore debug logs are more useful
+- There are fewer ZooKeeper connection errors
+
+AppScale version 2.7.0, released February, 2016
+Highlights of features/bugs in this release:
+- Fixed bug in choosing app ports via lsof
+- Fixed Vagrant FastStart to pick the correct IP
+- Added hourly status log in AppController
+- Handle UpdateIndex requests to the Datastore
+- Removed hardcoded refs to AppScale home dir
+- AppScale now runs on Ubuntu 14.04 LTS (Trusty Tahr)
+- Have Monit check app servers via the port
+- Increase Java URLFetch API size limit to 33MB
+- Clean up expired successful transactions
+- Fixed bug in monitoring Nginx
+- Updated URLFetch stub to handle socket timeouts
+- Keep about 1GB of app logs
+- Replaced nc with logger for centralized app log
+- Made start services idempotent
+- Have Zookeeper autopurge run more often
+- Use Monit to stop all running services during appscale down
+- Fixed bug that was spawning additional cloud instances
+- Better AppController restore flow
+- Fixed bug that was causing an app to be disabled
+- Assigned application ports will now persist through down/up
+- Use Xenial's version of kazoo
+- Fixed AppController's stop command
+- Removed the use of root RSA keys
+- Have the AppManager set up AppServer routing
+- Create separate logrotate script per application
+
+AppScale version 2.6.0, released December, 2015
+Highlights of features/bugs in this release:
+- Fixed bug that was preventing large blob uploads for Java apps
+- Avoid unnecessary data decoding when reading from the Datastore
+- Configure Monit on the server side
+- Better handling of crash logs on the Tools side
+- Better handling of health checks when overriden by the app
+- AppScale build in Docker container
+- Fixed race condition when allocating application ports
+- Faststart ability on all supported infrastructures
+- Java SDK upgrade to 1.8.4
+- Fixed bug with quotes for Java cron jobs
+- Limited the number of Zookeeper logs
+- Fixed permissions when untarring app code
+- Fixed bug in Groomer Monit configuration
+- Various Recovery improvements
+
+AppScale version 2.5.0, released November, 2015
+Highlights of features/bugs in this release:
+- Misc AppController fixes related to port collisions
+- Handle reserved delimiters in property values
+- Invalid index record grooming
+- Keep AppScale logs between restarts
+- Backup & Recovery of application source code
+- Fixed AppController self-lock issue
+- Fixed issue with AppScale not coming up after reboot
+- Default monit configuration changes (naming, cleanup, file checks, etc.)
+- Fixed bug in removing applications from AppScale
+
+AppScale version 2.4.0, released September, 2015
+Highlights of features/bugs in this release:
+- Upgraded to Ruby 1.9
+- Upgraded Java support to SDK 1.8.1
+- Fixed Datastore bug: fetching fewer references than the existing
+- Fixed Datastore bug for values containing a reserved delimiter
+- Fixed Datastore bug: failed transactions resulting in deleted index entries
+- Allow multiple equality filters for single property and zz merge join queries
+- FastStart for Google Compute Engine
+- Added Shibboleth login capability
+- Backbone of Hermes, AppScale's Messenger
+- Centralized application log on the head node
+- Reporting the ports used by an application
+- Better AppScalefile argument parsing
+- Better encoding handling for Java XML files
+- Fixed Java bug in connecting to the Memcache service
+- Fixed Java bug with cron entries not found
+- Added BlobInfos implementation in Java Blobstore API
+- Removed confirmation page after AppScale login
+- Changed bootstrap to build from latest release by default
+- Prevent Cassandra from filling up the disk with heap dumps
+- Be more aggressive with log rotation
+- Added email layer that enables debug mode
+
+AppScale version 2.3.1, released April, 2015
+Highlights of features/bugs in this release:
+- Remove old dashboard data and add timestamps
+- Release locks on soft deletes
+
+AppScale version 2.3.0, released April, 2015
+Highlights of features/bugs in this release:
+- User management scripts
+- Whitelisted Crypto libraries in python
+- ZooKeeper autopurge
+- Separated out data grooming service
+- Crontab update fix
+- Fixed functional tests for soap server
+- Fixed ZK blacklist check
+- Fixed handling application specified environment variables
+- Validate crontab lines before inserting
+- Removed secret from command line args for application servers
+- Use hash of secret for RabbitMQ
+- AppController is now a system service
+- Improve error messages in EC2
+- Removed duplicate entities when doing queries on list properties
+- Better handling on AppScale versions
+- Removed unused scripts
+
+AppScale version 2.2.0, released Febuary, 2015
+Highlights of features/bugs in this release:
+- Updated NDB to latest version
+- GHOST patch
+- No more uncommitted reads outside or inside a transaction
+- PHP version fix
+- Fixed unit test
+- Initial support for Search API (experimental)
+- Fix for "+" sign in EC2 key for multinode deployments
+- Updated fast start
+- Removed unused scripts and deadcode
+- Removed apache from build
+- Removed ntp call in cronjob
+- Updated logic for reconnection to ZK
+- Fixed FD leak for ZK
+- Native backup and restore for AppScale
+- Catching exception from Cassandra causing groomer/garbage collection issues
+- Fixed issue when binding to private IP
+- Made unit tests run faster
+- Added support for all ancestor paths on composite indexes
+
+AppScale version 2.1.0, released December, 2014
+Highlights of features/bugs in this release:
+- Updated bootstrap script
+- No longer overwriting SSL cert and private key on "appscale down"
+- NDB patch
+- Remove duplicates of host names found in ZooKeeper
+- Better logging in AppController
+- Use default HAProxy health checking
+- Allowing connections to self signed certificates for remote API
+- Email fix to allow for multiple attachments (python)
+- Removed API checker
+- Script to enable datastore viewer by IP
+- White listed future builtins
+- No longer storing temporary queues
+- Reloading taskqueue queues on redeploy
+- Increased concurrency of taskqueue celery workers to 10
+- Handle new queues when queue definitions change
+- Provide an empty cursor if requested
+- Force HTTPS when pointing to port 443 (python)
+- Dashboard navigation fixes
+- Ancestors for composites now always point to the root entity
+- Fixed maximum number of groups in a XG transaction
+- Catch exceptions for ZK errors in datastore server
+- Throw correct exceptions on illegal XG operations (needed for objectify)
+- Java has its datastore set to HighReplication
+- Added OFair to celery workers to not prefetch tasks
+- Increased the number of datastore servers to be a multiple of CPU cores
+- Improved groomer to handle more errors and retry
+- Disable ssl3 (POODLE)
+- Have Groomer delete logs older than 7 days
+- Clean up transaction journal in groomer
+- More fault tolerance with datastore operations and better load balancing
+- Fixed broken unit tests
+- Log rotation for saving disk space
+- Remove conflicting jars when uploading a Java application
+- Make sure jars are copied in when a java application is re-uploaded
+- Remote API support for java (custom jar to include in application)
+- Retry logic for sending emails (python)
+- Have a java error application when an upload goes bad
+- Fast start script for easy single node deployment
+- RabbitMQ fix for node clustering
+
+AppScale version 2.0.0, released June, 2014
+Highlights of features/bugs in this release:
+- Better error messages for AppScale tools
+- Moved to package installation of most installed software (faster build)
+- Cleanup of instances on "appscale down"
+- Ability to support more dynamic code layout of Java applications
+- Upgraded Cassandra to 2.0.7
+- Use ntp service for clock sync
+- Have AppScale catch when there are not enough resources on start
+- Using openjdk instead of Oracle's JVM
+- Fixed issue where monit thought ZooKeeper was not running
+- Made build process more resilient
+- Dead code elimination
+- Wheezy support
+- Updated bootstrap script
+- Batching for datastore queries (better memory management and stability)
+- Support for list composite indexes
+- Support for distinct queries
+- Projection queries no longer fetch from the entity table (faster queries)
+- ZigZag Merge Join optimization
+- Taskqueue statistics now reports number of tasks pending in a queue
+- Fixed critical bug where a failed slave node would come up as master
+- Fixed critical bug with nginx failing to be reloaded
+- Experimental OpenStack agent (auto scaling)
+
+AppScale version 1.14.0, released on February 10, 2014
+Bugs fixed in this release:
+- Removed "s~" character from app IDs (not used in AppScale) (#1428)
+- Updated message for MapReduce library (#1427)
+- Updated Nginx to latest version 1.5.10 (#1412 and #1411)
+- Releasing orphan locks in ZooKeeper (#1410)
+- Fixed AppController unit test (#1409)
+- Ability to use datastore_admin builtins in AppScale (#1408)
+- Cleaned up java AppServer log (#1407)
+- Removed unused scheduler in Java TasQueue due to Null Pointer (#1406)
+- Increased Cassandra timeout for bigger results from Datastore API (#1405)
+- Async logging and more efficient log updates (#1397 and #1403)
+- Allow the ability to update the flower password from the AppScalefile (#871 and $864)
+- Increased the number of cycles before killing a process (#868)
+- Ability to use remote_api in AppScale (#867)
+- Fixed unit test for ZooKeeper retry (#866)
+- Fixed Java logging (#865)
+- Ability to set max memory for application in AppScalefile (#862)
+- Exposing monit dashboard in cloud admin console (#861)
+- Fix for null values in composite queries (#860)
+- Fixing Channel API because AppScale secret changes on redeploy (#859)
+- Fixing ZigZag Merge Join queries (#858 and #850)
+- Setting max limit to 10k for queries to match GAE (#857)
+- Having Channel API return 200s instead of 503 timeouts (#856)
+- Cleaning up left over locks (#855)
+- Using Nginx port instead of server port where appropriate (#855)
+- Fix for multiple filters on a property in composite queries (#851)
+- Fix parsing app.yaml for regex for nginx (#849)
+- Setting PYTHON_LIB for app.yaml (#848)
+- Always rewrite nginx config file on app upload (#847)
+- Changed kind delimiter from "!" to 'x/01' (#844)
+- Increased cutoff time for all paths to 10 minutes (#843)
+- Channel API was missing named arg (#842)
+- Notify failed transaction on datastore connection issues (#838)
+
+AppScale version 1.13.0, released on December 19, 2013.
+
+Bugs fixed in this release:
+- Composite queries in the Java AppServer should make use of composite indexes
+- Users should be able to specify an elastic IP address in their AppScalefile for their head node in Amazon EC2
+- Users should be able to specify a static IP address in their AppScalefile for their head node in Google Compute Engine
+- Users should be able to deploy applications written with the Go 1 runtime.
+- Upgrade ZooKeeper to the latest version.
+- pycassa client should be invoked with a list to all database peers, instead of only one peer
+- Task Queue API calls should not fail on Eucalyptus, on any number of nodes
+- Update Google Compute Engine interface to use v1beta16, since v1beta15 is now deprecated.
+- AppController shouldn't write an empty file for API status if it didn't update API status info
+- Apps should be able to detect if they are being accessed via HTTP or HTTPS
+- Users should be able to use a command-line tool to get and set AppController-specific parameters
+- scp flag should rsync over AppServer_Java directory
+- AppScalefile template for cloud should include info about static IPs
+- Python AppServer should not send empty logs to the AppDashboard
+- APIs listed on status page should be displayed in a consistent order
+- Fix JPEG decoder error.
+- Fix broken IaaS Manager unit tests
+- Application redirects from SSL port to non-SSL port, even if the path is set to always encrypted.
+- RabbitMQ should not erase all persisted task queue data on disk when starting up
+- Add button on Dashboard to go to #appscale
+- Using latest version of Celery crashes workers on startup, so use stable version instead
+- SOAP timeouts between AppControllers should not cause AppScale to crash or become unresponsive
+- AppScale Tools should warn the user if they attempt to run AppScale on a machine with not enough memory for Cassandra
+- Use the newest version of boto instead of locking to version 2.6
+- 'appscale status' and AppDashboard should not show information about machines from previous runs when elastic IPs are used
+- AppScale should start up fine even if the zookeeper user does not initially own the directory where ZooKeeper stores data
+- AppController should not crash if APIChecker data is malformed
+- Move button to download logs to Log Viewer page, instead of being on Status page
+- Correctly calculate CPU and memory usage from top
+- AppController should not ping the APIChecker every 20 seconds, but instead once every 5 minutes
+- Verify that the loss of a single database peer in an AppScale deployment does not crash AppScale, while other peers still live
+- AppScale should not crash intermittently on EC2 with "Cannot find my nodes in list of nodes" message
+- Downscaling should kill all old dev_appserver processes, and should politely kill dev_appservers before SIGKILL'ing them
+- clear_datastore flag should cause data to be consistently erased on startup on VirtualBox deployments
+- AppScale should start up fine in Amazon EC2 if persistent disks get attached at somewhere other than the requested location
+- The autoscaler should not add AppServers to machines that have more than 90% CPU used
+- Users should be able to tell how many requests per second hit their app when data is received for it
+- Visiting the / URL on the Dashboard should go to the status page, not the landing page.
+- Users should be able to send commands to be executed on AppScale VMs that include redirection characters
+- If a machine is rebooted in an AppScale deployment and its IP address changes, it should not crash when restarting the AppController
+
+AppScale version 1.12.0 was released on September 30, 2013.
+
+Bugs fixed in this release:
+- Upgraded GCE image to Ubuntu Precise
+- Upgraded KVM image to Ubuntu Precise
+- Upgraded VirtualBox image to Ubuntu Precise
+- Upgraded Eucalyptus image to Ubuntu Precise
+- Upgraded EC2 image to Ubuntu Precise
+- Now using monit instead of god to monitor processes, and killing App Engine apps that take up too much memory
+- Now using monit to revive nginx if it fails
+- Now using monit to revive nginx if it fails
+- Now using monit to revive rabbitmq if it fails
+- Now using monit to revive ZooKeeper if it fails
+- Now using monit to revive haproxy if it fails
+- Now using monit to revive ejabberd if it fails
+- Now using monit to revive Cassandra if it fails
+- Improved Blobstore API fidelity for Python 2.7 apps
+- XMPP now works correctly on relocated apps
+- Load is rebalanced after scaling events
+- AppScale can now run in other AWS regions
+- No longer displaying oauth2client warnings on GCE
+- Not failing GCE image creation due to modprobe not being supported
+- Logging levels off by one in AppDashboard for Python apps
+- Fixed broken ImageLoadTest on Python 2.7 Hawkeye
+- Java AppServer now reads nginx port from filesystem, instead of as an arg
+- Protect access to flower
+- Nginx shouldn't expose Blobstore port to users in their apps
+- Prevent deprecated Python 2.5 apps from being uploaded
+- Allowing users to set keys longer than 250 characters in Java Memcache
+- AppServer ports are now automatically reused
+- Upgraded Cassandra to 2.0.1
+- Nginx and haproxy ports are now automatically reused
+- If there is a version mismatch between tools and main, tools now report each version to user and what they can do to fix it
+- AppController now gets IP correctly on non-English locales
+- Users can now bootstrap AppScale VMs with a list of commands in their AppScalefile
+- kill_all_instances_for_app now works every time, instead of just the first time
+- Celery works on rebooted VMs in one node deployments
+- Cleaned up AppDashboard interface to AppController
+- Fixed uploading apps via the AppDashboard
+- Removed link to Admin Console in AppDashboard
+- Uploading apps via the Dashboard now shows their information there
+- AppDashboard now allows users to upload zip files
+- Remove app reliably clears apps off the Dashboard
+- InfrastructureManager no longer prints users' AWS secret key
+- Removing apps then uploading them no longer results in 500s
+- Dashboard now shows updated ports for apps after relocation
+- Uploading apps via the Dashboard that were removed no longer results in 500s
+- Command-line interface now allows users to upload zipped apps
+- Upgraded pycassa to 1.9.1
+
+AppScale version 1.11.0 was released on September 30, 2013.
+
+Bugs fixed in this release:
+- Updated license to Apache 2.0
+- Use devappserver2 for multithreaded Python 2.7 apps
+- (Experimental) AppScale should run on Ubuntu Precise
+- Enable users to scale up from a single node
+- Allow users to dynamically change the port their app runs on
+- Support PHP App Engine apps
+- Do not let users start AppScale if there are terminated instances with the same keyname
+- Providing AppScale with invalid credentials on EC2 or Eucalyptus should fail with a more descriptive error message
+- Validate that XMPP, Cron, and Task Queue works on relocated apps
+- Fix bulk loader to use new ports for AppDashboard
+- Upload app page should include text explaining how to upload apps by default
+- 'appscale tail' should tail files across AppScale deployments
+- Relocating apps should not cause upload-app to return the wrong port on multinode deployments
+- Disable app relocation to firewalled ports
+- AppController should persist AppServer info to ZooKeeper
+- Relocating apps should result in the correct port being propogated to the AppDashboard
+- Removing apps shouldn't cause 502s from nginx
+- Give users a better error message if the keyname or group is in use
+- 'appscale down' then 'appscale up' should automatically restart apps on the same ports
+- Make sure logs get sent to the AppDashboard on Python 2.7 apps
+- Add relocate info to AppScale tools usage
+- Don't use dashes in keyname and group, since GCE doesn't allow it
+- AppDB should reestablish ZooKeeper connections when they are broken
+- Don't use appscale.cs.ucsb.edu in blobstore connection string
+- Nginx should serve static files with spaces correctly
+- Fix Python MapReduce API
+- Fidelity fixes for Java Memcache API
+- Java App Engine should indicate that its server mode is 'Production'
+- Support for Zigzag queries
+- Remove TimesTen build files
+- Upgrade API checker to Python 2.7
+- Use stack size of 226k with Cassandra
+- Use updated port on API checker when performing urlfetch on AppDashboard
+- Cloud admins should be able to view the App Console for all apps, not just apps they own
+- 'appscale down' or 'appscale clean' should remove local AppController state
+- Not displaying unknown role on status page
+- 'appscale --version' should print version number instead of usage
+- lxml should be importable for Python 2.7 apps with new devappserver
+- Sleep after VMs have been started in GCE to allow for SSH key injection
+- 'appscale up' and 'appscale down' check the same files to see if AppScale is running
+- Require Python 2.7 when using GCE, since the Google library requires it
+- Include gflags in build script
+
+AppScale version 1.10.0 was released on August 28, 2013.
+
+Bugs fixed in this release:
+- Automatically persisting data across AppScale runs in EC2/Eucalyptus if EBS volumes are provided
+- Automatically persisting data across AppScale runs in GCE if PD volumes are provided
+- Automatically persisting data across AppScale runs in VirtualBox
+- AppScale now restarts if machines were halted or powered off
+- Allowing users to specify what availability zone instances are spawned in
+- Serving static files via nginx for Java App Engine apps
+- Simplified autoscaling system
+- Passing over more detailed information about why the AppController crashes when a non-recoverable error ocurrs
+- Improved Java Datastore API fidelity
+- createLogoutURL in Java Users API now redirects users back to the specified URL
+- 'appscale clean' no longer sometimes requires 'force: True' on subsequent 'appscale up's
+- Added support for CAS in Python Memcache API
+- Politely shutting down database to avoid data loss / corruption
+- Enabling tools to take in signed OAuth2 credentials, so that web apps can use the AppScale Tools with GCE
+- Added ability to reset user passwords via the Dashboard
+- Verbose: True in AppScalefile now produces more logging in the AppController automatically
+- Enabling users to import Remote API Shell in their apps
+- Fixed memory leak where apichecker and appscaledashboard apps would endlessly collect logs
+- Fixed Task Queue API to not enqueue tasks with the same name as previously enqueued tasks
+- Tools no longer crash if they can't set the locale
+- Adding keyname and group in AppScalefile is no longer whitespace sensitive
+- AppController no longer crashes if cron.yaml is invalid
+- Updated AppScalefile templates to include new flags
+- No longer serving tar.gz'ed apps in the apps directory, since it could be accidentally served to users in some cases
+- Storing apps in /opt/appscale/apps, so that we persist them across AppScale deployments
+- Specifying toPort and fromPort when authorizing ICMP traffic (to work on Eucalyptus 3.3)
+- 'appscale logs' now works if the AppController has failed
+- Using IP addresses in Eucalyptus deployments instead of DNS names.
+- AppDashboard no longer crashes if the Console page is viewed while an app is loading
+- Added link to App Engine Admin Console on AppDashboard
+- No longer reporting negative requests per second in AppDashboard for apps
+- Stripping leading and trailing whitespace on username when users log into AppDashboard
+- AppDashboard no longer infinitely retries when talking to AppController
+- Create random keyname and group
+- Link to header in AppDashboard now works again
+- AppController retries requests to AppDashboard that fail b/c of transient errors
+- Updated GCE support to use v1beta15 instead of the now unsupported v1beta14
+- Telling users that appscale clean deletes their data
+- Providing ability to remove nameservers from /etc/resolv.conf to potentially speed up IP resolution
+- appscale deploy yields a more useful error message if users give it something that isn't a directory or .tar.gz file
+- Kind stats in AppDashboard have hover text, to make it more readable when many entities are present
+- AppScale no longer allows apichecker or appscaledashboard to be used as appids by users
+- Removed m2crypto from OS X build script
+- Installing dig on VMs
+- Terminating GCE instances in parallel, instead of in serial
+
+AppScale version 1.9.0 was released on July 22, 2013.
+
+Bugs fixed in this release:
+- Autoscaling within machines for Python and Java App Engine apps
+- Autoscaling to new machines for Python and Java App Engine apps
+- Downscaling for Python and Java App Engine apps
+- Updated Cassandra to 1.2.5
+- Java App Engine fixes to improve API fidelity with App Engine
+- AppController shouldn't crash if cron.yaml specifies no jobs
+- AppController logs shouldn't print 'warning: peer certificate' messages
+- Re-uploading same application shouldn't result in duplicate cron jobs
+- Blobstore should parse string entities correctly
+- AppController shouldn't crash if no queues are specified in queue.yaml
+- InfrastructureManager should report when requests fail
+- Add memcache stats to AppDashboard
+- Add flower link on AppDashboard
+- TaskQueue should not report status as failed when it is working fine
+- AppDashboard should show new nodes on status page when upscaling occurs
+- Increased number of concurrent requests to VMs
+- Handling SSH keys more intelligently in GCE
+- Handle Unavailable exceptions better with pycassa
+- Installing wget before it is used in build script
+- AppController shouldn't crash if other AppControllers are down
+- AppDashboard should list instance information for AppServers
+- XMPP receiver should reconnect to ejabberd if it loses its connection
+- Ensure all AppController logging goes to AppDashboard
+- Parsing queue.xml file for Java App Engine apps
+- Added ability to generate kind statistics on demand in AppDashboard
+- IP addresses no longer disappear when window resize occurs in AppDashboard
+- AppController shouldn't crash if it can't find app.yaml or appengine-web.xml
+- Added Java 7 into AppScale image
+
+AppScale version 1.8.0 was released on June 17, 2013.
+
+Bugs fixed in this release:
+- Google Compute Engine support
+- Upgrade Python App Server to support 1.8.0 APIs
+- Upgrade Java App Server to 1.8.0
+- Improved performance of ZooKeeper within AppScale
+- Displaying Kind stats for each app in Dashboard
+- Displaying requests per second for each app in Dashboard
+- Remove MySQL from AppScale images
+- AppScale Tools now writes an informative crash log if an uncaught exception is thrown
+- Fixed Channel API on 1.8.0 Python App Server
+- Apps should be able to specify queues without a rate specified.
+- Use private IPs when storing ZooKeeper locations
+- Fix install script so that 2nd install attempt will pass
+- Pushing tasks to queues that don't exist no longer kill the Task Queue Server
+- Enabling users to specify queue names with dashes in them
+- Java App Server properly checks if user cookies are valid before telling user they are / are not logged in
+- Task queue tasks can be run as admin in Java App Server
+- Fixed regression where app list refresh was broken, and JSON was being printed to status page
+- Added clarification on how to use force flag in AppScalefile
+- Fixed broken continue URLs in Java App Server
+- Better exception handling for ZooKeeper client in AppDB
+- Moved ZooKeeper data to /opt/appscale/zookeeper
+- Moved Cassandra data to /opt/appscale/cassandra
+- Fixed regression where groomer was broken
+- Left aligning logs in Dashboard
+- Properly rendering Dashboard icons
+- AppController now starts successfully even if other failed AppController processes are present
+- Dashboard now handles compressed file uploads with single directory better
+- Removed datastore_writes from API Checker and Dashboard
+- Updated cloud AppScalefile template to tell users how to use it with GCE
+- Printing crash log info more intelligently
+
+AppScale version 1.7.0 was released on May 13, 2013.
+
+Bugs fixed in this release:
+- System-level logging for admin user
+- Fixed 'none' in database name, replication, and monitoring URL
+- Speed up performance of AppDashboard
+- Implement log levels for the AppController
+- Prime AppDashboard before sending users to it
+- Extend timeout from 30 to 60 minutes for images to boot in Eucalyptus.
+- Add AppStats support for Python 2.7 App Engine apps.
+- Refactor AppController's loging to not have everything at the DEBUG level.
+- Namespacing now handled correctly by the datastore server.
+- Uploading large apps from web UI now succeeds
+- Updating login cookie at AppDashboard when apps are uploaded or deleted.
+- Static secure files no longer lead to redirect loops.
+- Channel API support for Java App Engine apps.
+- Remove runtime checks for invalid Java classes from SDK.
+- Mail API support for Java App Engine apps.
+- AppDashboard now stores API status in Datastore
+- AppController dying no longer kills the AppDashboard
+- Resolved ndb deadlock issues with AppDashboard
+- Fixed Cron API on Eucalyptus
+- Altered build script to fail if any component fails to install
+- Fixed 'appscale down' / terminate-instances when running on an AppScale image
+- Apps can now be updated without first having to remove them
+- Using Kazoo for ZooKeeper interactions, fixing NFS stale file handle errors
+- Added EC2_SECRET_KEY and EC2_ACCESS_KEY args for AppScalefile
+- Removed unused JavaScript files in AppDashboard
+- 'verbose: False' now omits verbose flag in 'appscale up'
+- Bulk loader now generates kind statistics
+- Added bulk loader support for Java App Engine apps
+- Java App Engine apps now support multithreading
+- AppDashboard now uses graphical representations of numeric data
+- Fixed XMPPReceiver, which broke with new AppDashboard implementation
+- Cleaning up soft deleted items periodically
+- ndb no longer sees memcache entries as corrupt
+- Removed update SDK message from Java App Server
+- Fixed bug where XMPP would fail for Java App Engine apps with capital letters in appid
+- appscale.deploy now returns the host and port of the app that was deployed
+- Enable AES support for apps that use pycrypto
+- Properly adding lxml to dev_appserver's import path
+- Removed AppDashboard's font references in CSS to files that don't exist
+- Allow users to upload tar files with the app in a top-level directory
+- When doing an 'appscale clean', we now remove local state in ~/.appscale
+- Fixed starting AppScale on EC2 with a one node deployment, with --ips_layout
+- Using retries when performing Kazoo operations with ZooKeeper
+- appscale-upload-app now uses unique tempdir locations when uploading apps
+- Uploading apps via web UI no longer throws 404s
+- Large apps no longer timeout nginx when uploaded via the AppDashboard
+- Using glob when importing Python libraries in dev_appserver
+- Refreshing application names consistently in AppDashboard
+- Caching AppController status at login node, resolving SOAP timeouts in Dashboard
+- Improved stability for AppDashboard in Euca deployments
+
+AppScale version 1.6.9 was released on April 5, 2013.
+
+Bugs fixed in this release:
+- Cross group (XG) transactions for Python 2.5, Java, and Python 2.7 App Engine apps
+- Java XMPP support
+- Spot instance support when running over Amazon EC2
+- Automatic price estimation algorithm for spot instance support
+- Robustness fixes for ZooKeeper interface
+- Transactional task support for Python App Engine apps
+- Memcache increment / decrement in Java App Engine
+- Fixes for Python App Engine Channel API
+- Have god monitor HAProxy
+- NTP sync for VMs in AppScale deployments
+- 'appscale deploy' now works for relative app paths
+- Deferred task support
+- Increased validation on AppScalefile
+- Rebranded continue URL page
+- "appscale clean" command, to terminate AppScale on all nodes
+- Fixed "submit issue" button on dashboard
+- Added support for environment variables in app.yaml files
+- Starting AppMonitoring service in EC2 correctly
+
+AppScale version 1.6.8 was released on March 13, 2013.
+
+Bugs fixed in this release:
+- Ordered ancestor queries
+- Complex query fix for indexes with same name
+- Obscured EC2 credentials in AppController log
+- Turn off firewall when we turn off AppScale
+- New TaskQueue client for Java
+- Fixed XMPP API when running on EC2, Eucalyptus
+- Fixed XMPP API for Python 2.7 App Engine
+- Fixed errors using AppScale on complex deployments
+- Rebranded AppLoadBalancer
+- Fixes for distributed Task Queue system
+- Restarting RabbitMQ if it fails to start up
+- Restarting AppControllers on remote nodes if they fail to start
+- Added pycrypto and lxml for use by App Engine apps
+- Fixed timeout for RabbitMQ starting up to not be infinite
+- Added deferred Task Queue support
+- Replaced spymemcached with xmemcached for Java App Engine
+
+AppScale version 1.6.7 was released on February 13, 2013.
+
+Bugs fixed in this release:
+- Terminate script kills Erlang processes
+- Fixed HTTP -> HTTPS redirection issues
+- Add support for JDO and JPA
+- Properly encoding memcache keys with spaces in it
+- Fixed Java memcache inconsistencies in a distributed environment
+- Changed nginx config file construction to support regexes
+
+AppScale version 1.6.6 was released on January 21, 2013.
+
+Bugs fixed in this release:
+- Support Python 2.7 App Engine apps
+- Fixed ACID semantics for transactions
+- Add nodes dynamically to a running AppScale deployment
+- SSL support for App Engine apps
+- Upgrade nginx to latest stable version and include HTTP chunking support
+- AppController revives properly after being killed
+- Cookies do not get created in certain deployment types
+- Cookies do not get deleted if > 1 eth device present
+- Turn on HRD flag in Python AppServer
+- Added AppScalefile support, making it easier to run AppScale
+- Add in 'appscale logs' command to automatically collect log files
+- Add in 'appscale tail' command to automatically tail log files
+- Add in 'appscale down' to alias to 'appscale destroy'
+- Add in 'appscale ssh' to ssh to AppScale VMs
+- Added Watchfile for continuous testing support
+- Remove binary from beginning of locations.yaml file
+- Start unrelated API services in parallel to improve startup time
+- Make tools print version number on startup
+- Fix bulkloader to support batching
+- Python and Java API fidelity testing apps (Hawkeye)
+- Obscuring EC2 credentials after a regression exposed them
+
+AppScale version 1.6.5 was released December 19, 2012.
+
+Bugs fixed in this release:
+
+- Update Java AppServer to 1.7.3
+- Update Python AppServer to 1.7.3
+- Make bulkloader work with AppScale
+- AppScale fails to start if eth0's IP is not externally accessible
+- NeptuneManager no longer starts up correctly
+- AppController should validate AppScale version
+- Firewall needs to be on
+- Hypertable does not start when db_master != node1
+
+AppScale version 1.6.4 was released November 21, 2012.
+
+Bugs fixed in this release:
+
+- Update Java AppServer to 1.7.2.1
+- Python AppServer leaks memory
+- InfrastructureManager is not using given user's credentials
+- AppController crashes if it can't determine its own IP address
+- Failure to delete app data from ZooKeeper prevents app removal
+- Uploading apps via web UI doesn't work
+- Removed sisyphus from code base
+- New builds fail due to Rake error
+- AppScale lite - selectively build one database into AppScale instead of all of them
+
+AppScale version 1.6.3 was released October 30, 2012.
+
+Bugs fixed in this release:
+- Autoscaler scales down when --appengine is used (https://github.com/AppScale/appscale/issues/43)
+- AppController crashes in response to failed ZooKeeper operations (https://github.com/AppScale/appscale/issues/47)
+- Python applications should start even if rabbitmq fails to start (https://github.com/AppScale/appscale/issues/62)
+- Bad applications crash appscale (https://github.com/AppScale/appscale/issues/57)
+and updated versions of Cassandra and HBase used.
+
+AppScale version 1.5 was released July 28, 2011. Features include:
+
+	Support for the bulkloader, enabling persistence for your data
+	Upgraded Java and Python AppServers to GAE 1.4.3
+	Support for Go App Engine apps (SDK version 1.5.0), including support for apps that use multiple processes
+	Fault tolerance for almost all services (processes monitored and revived by god)
+	Faster startup and termination of AppScale, especially over larger numbers of nodes
+	Tools and image now verify that all instances used have AppScale installed
+	EC2 and Eucalyptus credentials are now obscured when they are printed to logs
+	Channel API for Python (multiple receivers can also be used) - implemented via Strophe.js
+	Blobstore and Files API for Python
+	XMPP API for Python - implemented via ejabberd
+	Hybrid cloud support - run AppScale over multiple clouds in a single deployment (e.g., Eucalyptus and EC2, EC2 East Coast and EC2 West Coast)
+	Neptune language support
+	Table caching for MySQL, HBase, Hypertable to improve performance
+	Updated interface for Amazon SimpleDB
+	Upgraded Cassandra version used to 0.7.6-2
+	Upgraded HBase version used to 0.89
+	Upgraded Hadoop version used to 0.20.2
+	Upgraded Hypertable version used to 0.9.43
+	Namespacing support
+	Added Loki, a fault tolerance tester along the lines of Netflix's Chaos Monkey
+	User authorization system for MapReduce, EC2, and Neptune APIs
+	Ability to remove transaction overhead via namespaces
+	Various other bug fixes
+
+AppScale version 1.4 was released September 7, 2010.
+
+Included in this release (over version 1.3) is:
+
+    Transaction support for all databases
+    Placement support - administrators can now specify which components should go where
+    Package installation via apt-get for Ubuntu Jaunty, Karmic, and Lucid
+    Addition of support for Scalaris
+    Upgrade to Python App Engine 1.3.2 compatibility
+    Introduction of Java App Engine 1.3.5 compatibility
+    Added support for Images API and Cron API for Python Google App Engine
+    Added support for Memcache API, Images API, Task Queue API, and Cron API for Java Google App Engine
+    Single node deployments for all databases (previously only Cassandra, Voldemort, MongoDB, and MemcacheDB were supported)
+    PBServer is now multi-process and load balanced to improve throughput
+    Secure login page for authentication via https
+    Amazon AWS EC2 public image available (ami-044fa56d)
+
+Supported Databases:
+
+    HBase - Version 0.20.3
+    Hypertable - Version 0.9.2.7
+    MySQL Cluster - Version 5.1.30
+    Cassandra - Version 0.6.1
+    Voldemort - Version 0.80
+    MongoDB - Version 1.2.2-1ubuntu1
+    MemcacheDB - Version 1.2.0-6
+    Scalaris - Version 0.2.3-1
+
+Restrictions:
+
+    64 bit systems only (host and virtual machines)
+    Specific versions supported (we support only these versions)
+        Ubuntu Jaunty, Karmic, and Lucid only
+            x86_64 image kernel/modules/ramdisk
+        Xen v3.3.3
+        Eucalyptus v1.6 (KVM and Xen virtualization supported)
+        Python App Engine 1.3.2 and Java App Engine 1.3.5
+        HBase, Hypertable, MySQL, Cassandra, Voldemort, MongoDB, MemcacheDB, Scalaris
+
+Roadmap
+
+    Persistence of instance data via EBS in Eucalyptus and EC2
+    Automatic scaling of AppScale deployment in Eucalyptus/EC2
+    Additional robustness and bug fixes
+
+Prior Releases
+
+Release 1.3, released December 13, 2009.
+
+Included in this release (over version 1.3 Beta) is:
+
+    Critical bug fixes for Cassandra, MongoDB, and MySQL
+    Amazon AWS EC2 public image available (ami-14799b7d)
+
+Restrictions:
+
+    64 bit systems only (host and virtual machines)
+    Specific versions supported (we support only these versions)
+        Ubuntu Jaunty 9.04 distribution supported only
+            x86_64 image kernel/modules/ramdisk
+            for virtualized instances:
+                linux-ubuntu-modules-2.6.24-23-xen
+                linux-restricted-modules-2.6.24-23-xen
+                linux-image-2.6.24-23-xen
+        Xen v3.3.3
+        Eucalyptus v1.5.2 (KVM and Xen virtualization supported)
+        Python App Engine 1.2.7
+        HBase, Hypertable, MySQL, Cassandra, Voldemort, MongoDB, MemcacheDB (versions specified in the scratch install instructions)
+
+Release 1.3, Beta, released December 7, 2009:
+
+    Upgrade to Python App Engine 1.2.7 compatibility
+    Introduction of Java App Engine 1.2.5 compatibility
+    Addition of support for MongoDB and MemcacheDB
+    AppServers are now multi-process and PBServer is now multi-threaded, greatly improving performance
+    True memcache(d) support for Python App Engine apps
+    MySQL bug fix allowing runs over any number of nodes greater than one
+    Amazon AWS EC2 public image available (ami-5e05e737)
+    New single node deployments for MongoDB and MemcacheDB
+    Ability to delete applications from a running deployment
+    Python2.6 for everything except Google App Engine (Python2.5)
+    Complete rewrite of AppLoadBalancer
+    True support for static files via nginx (Python App Engine apps only)
+    Numerous security fixes relating to cookies and administrator status on apps
+    Additional robustness and bug fixes
+
+Restrictions:
+
+    64 bit systems only (host and virtual machines)
+    Specific versions supported (we support only these versions)
+        Ubuntu Jaunty 9.04 distribution supported only
+            x86_64 image kernel/modules/ramdisk
+            for virtualized instances:
+                linux-ubuntu-modules-2.6.24-23-xen
+                linux-restricted-modules-2.6.24-23-xen
+                linux-image-2.6.24-23-xen
+        Xen v3.3.3
+        Eucalyptus v1.5.2 (KVM and Xen virtualization supported)
+        Python App Engine 1.2.7
+        HBase, Hypertable, MySQL, Cassandra, Voldemort, MongoDB, MemcacheDB (versions specified in the scratch install instructions)
+
+Release 1.2, released September 7, 2009:
+
+    Upgrade to Python App Engine 1.2.3 compatibility
+    Addition of support for Voldemort and Cassandra
+    MySQL bug fix allowing for parallel API nodes
+    Eucalyptus 1.5.2 support (no previous versions of Eucalyptus are supported)
+    Amazon AWS EC2 public image available (ami-7136d618)
+    Support for running Ubuntu Jaunty systems
+    Single node deployments (Cassandra or Voldemort only)
+    Ability to delete applications from a running deployment
+    Python2.6 for everything except GAE (Python2.5)
+    Replication is configurable
+    Ubuntu 9.04 support and wiki directions
+    Wiki directions of sole-KVM use
+    Additional robustness and bug fixes
+
+Release 1.1, released June 17, 2009:
+
+    Upgrade to Python App Engine 1.2.2 compatibility
+    Addition of support for MySQL
+    Eucalyptus 1.5 support (no previous versions of Eucalyptus are supported)
+    Amazon AWS EC2 support and instructions
+    Instructions for building an AppScale image from scratch
+    Support for running on non-virtualized Ubuntu Hardy (8.04) systems
+    iptables-based firewall for improved security
+    Additional robustness and bug fixes
+
+    Restrictions:
+
+        64 bit systems only (host and virtual machines)
+            32 bit systems for non-virtualized installation
+        Specific versions supported (we support only these versions)
+            Ubuntu Hardy Heron 8.04 distribution supported only
+                x86_64 image kernel/modules/ramdisk
+                for virtualized instances:
+                    linux-ubuntu-modules-2.6.24-23-xen
+                    linux-restricted-modules-2.6.24-23-xen
+                    linux-image-2.6.24-23-xen
+            Xen v3.3.1
+            Eucalyptus v1.5 (KVM and Xen virtualization supported)
+            Python App Engine 1.2.2
+            HBase, Hypertable, MySQL (versions specified in the scratch install instructions)
+
+Release 1.0.2:
+
+    Supported Databases: HBase, Hypertable
+    Cluster types supported: Xen, Eucalyptus
+    Bug fixes (1.0, 1.0.1)
+
+Release 1.0:
+
+    Xen-only, image-based AppScale deployment released
+    Supported Database: HBase
