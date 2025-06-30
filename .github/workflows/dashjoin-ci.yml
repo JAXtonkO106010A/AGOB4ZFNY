@@ -1,0 +1,24 @@
+name: Dashjoin CI build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+        #cache: 'maven'
+
+    - name: Build with Maven
+      run: ./mvnw -v && ./mvnw -B install --file pom-ci.xml -Drevision=1.0.0-$(git rev-parse --short $GITHUB_SHA)
