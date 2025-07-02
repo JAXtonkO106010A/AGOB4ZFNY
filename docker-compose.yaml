@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  backend:
+    build:
+      context: ./NoteCraft_backend
+      dockerfile: Dockerfile.web
+    container_name: notecraft_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./NoteCraft_backend:/app
+    env_file:
+      - .env
+    depends_on:
+      - redis  # Optional: Remove if cloud-based and not needed for startup ordering
+
+  celery:
+    build:
+      context: ./NoteCraft_backend
+      dockerfile: Dockerfile.celery
+    container_name: notecraft_celery
+    volumes:
+      - ./NoteCraft_backend:/app
+    env_file:
+      - .env
+    depends_on:
+      - backend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: notecraft_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
